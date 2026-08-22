@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Liberty Overseas Website
+
+Premium Next.js website for **Liberty Overseas** — visa consultancy and test preparation academy in Hyderabad.
+
+## Stack
+
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS v4
+- Framer Motion
+- Embla Carousel
+- Radix UI / shadcn-style components
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Pages (28 total)
 
-To learn more about Next.js, take a look at the following resources:
+| Route | Description |
+|-------|-------------|
+| `/` | Home — cinematic hero, services, destinations |
+| `/overseas` | Visa services hub |
+| `/overseas/visit-visa` | Visit visa |
+| `/overseas/student-visa` | Student visa |
+| `/overseas/business-visa` | Business visa |
+| `/academy` | Academy hub |
+| `/academy/ielts` | IELTS coaching |
+| `/academy/pte` | PTE coaching |
+| `/academy/gre` | GRE preparation |
+| `/study-abroad` | Study abroad journey |
+| `/destinations` | Destinations hub |
+| `/destinations/[slug]` | 10 country pages |
+| `/about` | About, mission, founders |
+| `/success-stories` | Client testimonials |
+| `/faq` | FAQ by category |
+| `/contact` | Contact form & map |
+| `/privacy-policy` | Privacy policy |
+| `/terms-and-conditions` | Terms |
+| `/disclaimer` | Disclaimer |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All business copy lives in `src/content/`:
 
-## Deploy on Vercel
+- `site.ts` — contact info, stats, USPs
+- `navigation.ts` — nav links
+- `overseas.ts` — visa services
+- `academy.ts` — IELTS/PTE/GRE data
+- `destinations.ts` — country pages
+- `faq.ts`, `founders.ts`, `success-stories.ts`, `study-abroad.ts`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Update these files to change site content without touching components.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Images
+
+Placeholder images use Unsplash URLs. Replace with Liberty's own assets in `public/images/` and update content files.
+
+## Lead Form
+
+The contact/lead form is UI-only for now. Work Permit selections show a rejection message and block submission. Wire up a backend (email API, CRM) in `src/components/forms/lead-form.tsx` when ready.
+
+## SEO
+
+- Per-page metadata via `createPageMetadata()` in `src/lib/utils.ts`
+- `src/app/sitemap.ts` — auto-generated sitemap
+- `src/app/robots.ts` — robots.txt
