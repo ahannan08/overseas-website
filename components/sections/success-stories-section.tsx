@@ -1,8 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import { Quote, Star, Trophy } from "lucide-react";
 import { successStories } from "@/content/success-stories";
 import { Container, SectionHeading } from "@/components/layout/page-hero";
-import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion/fade-in";
+import { SectionCarousel } from "@/components/ui/section-carousel";
 
 const featuredStories = [
   ...successStories.visa.slice(0, 2),
@@ -11,7 +13,7 @@ const featuredStories = [
 
 export function SuccessStoriesSection() {
   return (
-    <section className="relative overflow-hidden py-24">
+    <section className="relative overflow-hidden py-16 md:py-24">
       <div className="absolute inset-0">
         <Image
           src="/images/office2.png"
@@ -35,7 +37,7 @@ export function SuccessStoriesSection() {
           accent="Real results"
           subtitle="Hear from clients who achieved their dreams with Liberty Overseas."
         />
-        <StaggerChildren className="grid gap-6 md:grid-cols-2">
+        <SectionCarousel slideClassName="md:basis-[48%] lg:basis-[48%]">
           {featuredStories.map((story) => {
             const meta =
               "destination" in story
@@ -47,28 +49,27 @@ export function SuccessStoriesSection() {
               .join("");
 
             return (
-              <StaggerItem key={story.name}>
-                <FadeIn>
-                  <div className="glass flex min-h-[220px] flex-col rounded-2xl border border-white/10 p-8 transition hover:border-accent/30">
-                    <Quote className="h-8 w-8 shrink-0 text-accent/40" />
-                    <p className="mt-4 flex-1 text-base leading-relaxed text-foreground/90">
-                      &ldquo;{story.quote}&rdquo;
-                    </p>
-                    <div className="mt-8 flex items-center gap-4 border-t border-white/10 pt-6">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-light">
-                        {initials}
-                      </div>
-                      <div>
-                        <p className="font-semibold text-foreground">{story.name}</p>
-                        <p className="text-sm text-accent-light">{meta}</p>
-                      </div>
-                    </div>
+              <div
+                key={story.name}
+                className="glass flex min-h-[220px] flex-col rounded-2xl border border-white/10 p-6 transition hover:border-accent/30 sm:p-8"
+              >
+                <Quote className="h-8 w-8 shrink-0 text-accent/40" />
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-foreground/90 sm:text-base">
+                  &ldquo;{story.quote}&rdquo;
+                </p>
+                <div className="mt-6 flex items-center gap-4 border-t border-white/10 pt-5 sm:mt-8 sm:pt-6">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-light">
+                    {initials}
                   </div>
-                </FadeIn>
-              </StaggerItem>
+                  <div>
+                    <p className="font-semibold text-foreground">{story.name}</p>
+                    <p className="text-sm text-accent-light">{meta}</p>
+                  </div>
+                </div>
+              </div>
             );
           })}
-        </StaggerChildren>
+        </SectionCarousel>
       </Container>
     </section>
   );
