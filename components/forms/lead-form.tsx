@@ -50,7 +50,7 @@ export function LeadForm({ light = false }: { light?: boolean }) {
   return (
     <GlassCard className={light ? "!bg-white !border-light-fg/10" : ""}>
       <h3 className={`text-xl font-bold ${light ? "text-light-fg" : ""}`}>
-        Check Your Eligibility
+        Send an Enquiry
       </h3>
       <p className={`mt-2 text-sm ${light ? "text-light-fg/70" : "text-muted"}`}>
         Fill in your details and our consultant will reach out.

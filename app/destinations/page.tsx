@@ -1,6 +1,5 @@
 import { DestinationsGrid } from "@/components/sections/destinations-grid";
 import { PageHero } from "@/components/layout/page-hero";
-import { CTABanner } from "@/components/sections/cta-banner";
 import { createPageMetadata } from "@/lib/utils";
 
 export const metadata = createPageMetadata(
@@ -19,7 +18,6 @@ export default function DestinationsPage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Destinations" }]}
       />
       <DestinationsGrid showHeading={false} />
-      <CTABanner />
     </>
   );
 }

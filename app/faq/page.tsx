@@ -1,7 +1,6 @@
 import { faqCategories } from "@/content/faq";
 import { PageHero } from "@/components/layout/page-hero";
 import { FAQByCategory } from "@/components/sections/faq-accordion";
-import { CTABanner } from "@/components/sections/cta-banner";
 import { createPageMetadata } from "@/lib/utils";
 
 export const metadata = createPageMetadata(
@@ -19,7 +18,6 @@ export default function FAQPage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "FAQ" }]}
       />
       <FAQByCategory categories={faqCategories} />
-      <CTABanner />
     </>
   );
 }

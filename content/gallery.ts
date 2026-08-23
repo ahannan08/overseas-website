@@ -2,8 +2,7 @@ export const studentGallery = [
   {
     title: "Student Counselling",
     description: "One-on-one guidance for your study abroad journey",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+    image: "/images/student-journey/student_counseling.png",
   },
   {
     title: "Conversation Day",
@@ -14,14 +13,12 @@ export const studentGallery = [
   {
     title: "Graduation Day",
     description: "Celebrating student success worldwide",
-    image:
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
+    image: "/images/student-journey/grad.png",
   },
   {
     title: "Campus Life",
     description: "Experience world-class education abroad",
-    image:
-      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80",
+    image: "/images/student-journey/campus.png",
   },
 ];
 

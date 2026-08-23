@@ -1,15 +1,11 @@
 import { visaTypes } from "@/content/overseas";
 import { academyCourses } from "@/content/academy";
-import { homeFaqTeaser } from "@/content/faq";
 import { CinematicHero } from "@/components/sections/cinematic-hero";
 import { StatsBar } from "@/components/sections/stats-bar";
 import { ServicesGrid, WhyLiberty } from "@/components/sections/services-grid";
 import { DestinationsShowcase } from "@/components/sections/destinations-showcase";
 import { StudentLifeGallery } from "@/components/sections/student-gallery";
-import { FoundersSection } from "@/components/sections/founders-section";
 import { SuccessStoriesSection } from "@/components/sections/success-stories-section";
-import { ReadyToStartSection } from "@/components/sections/ready-to-start-section";
-import { FAQAccordion } from "@/components/sections/faq-accordion";
 import { createPageMetadata } from "@/lib/utils";
 
 export const metadata = createPageMetadata(
@@ -60,12 +56,6 @@ export default function HomePage() {
       <WhyLiberty />
 
       <SuccessStoriesSection />
-
-      <FoundersSection light />
-
-      <ReadyToStartSection />
-
-      <FAQAccordion items={homeFaqTeaser} showViewAll sectionId="faq" light />
     </>
   );
 }

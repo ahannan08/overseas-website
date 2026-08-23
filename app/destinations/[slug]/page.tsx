@@ -1,9 +1,6 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { destinations, getDestination } from "@/content/destinations";
 import { PageHero, Container, SectionHeading } from "@/components/layout/page-hero";
-import { CTABanner } from "@/components/sections/cta-banner";
-import { LeadForm } from "@/components/forms/lead-form";
 import { FadeIn } from "@/components/motion/fade-in";
 import { createPageMetadata } from "@/lib/utils";
 
@@ -71,35 +68,6 @@ export default async function DestinationPage({ params }: Props) {
           </div>
         </Container>
       </section>
-
-      <section className="py-24">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <SectionHeading
-                title="Plan Your Trip"
-                accent="Free consultation"
-                subtitle={`Get expert guidance for your ${dest.name} visa application.`}
-              />
-              <div className="mt-6 flex flex-wrap gap-4">
-                {dest.visitVisa && (
-                  <Link href="/overseas/visit-visa" className="text-sm text-accent hover:text-accent-light">
-                    Visit Visa Info →
-                  </Link>
-                )}
-                {dest.studentVisa && (
-                  <Link href="/overseas/student-visa" className="text-sm text-accent hover:text-accent-light">
-                    Student Visa Info →
-                  </Link>
-                )}
-              </div>
-            </div>
-            <LeadForm light />
-          </div>
-        </Container>
-      </section>
-
-      <CTABanner />
     </>
   );
 }

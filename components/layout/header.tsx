@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import { mainNav } from "@/content/navigation";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils";
 
 export function Header() {
   const pathname = usePathname();
-  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -21,19 +20,6 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const scrollToFaq = useCallback(() => {
-    if (pathname === "/") {
-      document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      router.push("/#faq");
-    }
-  }, [pathname, router]);
-
-  const handleFaqClick = () => {
-    setOpen(false);
-    scrollToFaq();
-  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 md:px-6">
@@ -87,10 +73,10 @@ export function Header() {
           <Button
             variant="ghost"
             size="sm"
-            onClick={scrollToFaq}
+            asChild
             className={cn(scrolled && "text-light-fg hover:bg-light-fg/5 hover:text-accent")}
           >
-            FAQ
+            <Link href="/faq">FAQ</Link>
           </Button>
           <Button size="sm" asChild>
             <Link href="/contact">Check Eligibility</Link>
@@ -123,8 +109,10 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <Button variant="ghost" className="justify-start px-4" onClick={handleFaqClick}>
-                FAQ
+              <Button variant="ghost" className="justify-start px-4" asChild>
+                <Link href="/faq" onClick={() => setOpen(false)}>
+                  FAQ
+                </Link>
               </Button>
               <Button className="mt-2" asChild>
                 <Link href="/contact" onClick={() => setOpen(false)}>

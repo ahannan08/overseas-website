@@ -1,7 +1,5 @@
 import { studyAbroadJourney, studyAbroadSections } from "@/content/study-abroad";
 import { PageHero, Container, SectionHeading } from "@/components/layout/page-hero";
-import { CTABanner } from "@/components/sections/cta-banner";
-import { LeadForm } from "@/components/forms/lead-form";
 import { FadeIn } from "@/components/motion/fade-in";
 import { createPageMetadata } from "@/lib/utils";
 
@@ -61,21 +59,6 @@ export default function StudyAbroadPage() {
           </div>
         </Container>
       </section>
-
-      <section className="py-24">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
-            <SectionHeading
-              title="Start Your Journey"
-              accent="Free consultation"
-              subtitle="Speak with our study abroad consultants today."
-            />
-            <LeadForm light />
-          </div>
-        </Container>
-      </section>
-
-      <CTABanner />
     </>
   );
 }

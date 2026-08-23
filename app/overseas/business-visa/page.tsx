@@ -1,8 +1,6 @@
 import { visaTypes } from "@/content/overseas";
 import { additionalServices } from "@/content/site";
 import { PageHero, Container, SectionHeading } from "@/components/layout/page-hero";
-import { CTABanner } from "@/components/sections/cta-banner";
-import { LeadForm } from "@/components/forms/lead-form";
 import { FadeIn } from "@/components/motion/fade-in";
 import { createPageMetadata } from "@/lib/utils";
 
@@ -59,21 +57,6 @@ export default function BusinessVisaPage() {
           </div>
         </Container>
       </section>
-
-      <section className="bg-surface/30 py-24">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
-            <SectionHeading
-              title="Get Started"
-              accent="Free consultation"
-              subtitle="Discuss your business travel visa requirements."
-            />
-            <LeadForm />
-          </div>
-        </Container>
-      </section>
-
-      <CTABanner />
     </>
   );
 }

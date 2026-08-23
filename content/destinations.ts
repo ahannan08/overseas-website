@@ -17,8 +17,7 @@ export const destinations: Destination[] = [
     name: "Australia",
     region: "Oceania",
     flag: "🇦🇺",
-    image:
-      "https://images.unsplash.com/photo-1523482580672-f1090198a325?w=1200&q=80",
+    image: "/images/destinations/australia.jpg",
     tagline: "Explore. Study. Work. Experience Australia.",
     visitVisa: true,
     studentVisa: true,
@@ -31,8 +30,7 @@ export const destinations: Destination[] = [
     name: "USA",
     region: "North America",
     flag: "🇺🇸",
-    image:
-      "https://images.unsplash.com/photo-1485738422979-f299c4623312?w=1200&q=80",
+    image: "/images/destinations/usa.jpg",
     tagline: "Explore. Study. Work. Experience America.",
     visitVisa: true,
     studentVisa: true,
@@ -45,8 +43,7 @@ export const destinations: Destination[] = [
     name: "United Kingdom",
     region: "Europe",
     flag: "🇬🇧",
-    image:
-      "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=80",
+    image: "/images/destinations/uk.jpg",
     tagline: "Explore. Study. Work. Experience the UK.",
     visitVisa: true,
     studentVisa: true,
@@ -59,8 +56,7 @@ export const destinations: Destination[] = [
     name: "Canada",
     region: "North America",
     flag: "🇨🇦",
-    image:
-      "https://images.unsplash.com/photo-1503614472-8c93d049a221?w=1200&q=80",
+    image: "/images/destinations/canada.jpeg",
     tagline: "Explore. Study. Work. Experience Canada.",
     visitVisa: true,
     studentVisa: true,
@@ -73,8 +69,7 @@ export const destinations: Destination[] = [
     name: "New Zealand",
     region: "Oceania",
     flag: "🇳🇿",
-    image:
-      "https://images.unsplash.com/photo-1469521669692-473ff072709a?w=1200&q=80",
+    image: "/images/destinations/new-zealand.jpg",
     tagline: "Explore. Study. Work. Experience New Zealand.",
     visitVisa: true,
     studentVisa: true,
@@ -87,8 +82,7 @@ export const destinations: Destination[] = [
     name: "Europe",
     region: "Europe",
     flag: "🇪🇺",
-    image:
-      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&q=80",
+    image: "/images/destinations/europe.jpg",
     tagline: "Explore. Study. Work. Experience Europe.",
     visitVisa: true,
     studentVisa: true,
@@ -115,8 +109,7 @@ export const destinations: Destination[] = [
     name: "Singapore",
     region: "Asia",
     flag: "🇸🇬",
-    image:
-      "https://images.unsplash.com/photo-1525621487017-6080faded237?w=1200&q=80",
+    image: "/images/destinations/singapore.jpeg",
     tagline: "Study at top-ranked universities in Asia.",
     visitVisa: false,
     studentVisa: true,
@@ -129,8 +122,7 @@ export const destinations: Destination[] = [
     name: "Malaysia",
     region: "Asia",
     flag: "🇲🇾",
-    image:
-      "https://images.unsplash.com/photo-1596422846543-75c6fc197608?w=1200&q=80",
+    image: "/images/destinations/malaysia.jpeg",
     tagline: "Affordable education in a vibrant setting.",
     visitVisa: false,
     studentVisa: true,
@@ -143,8 +135,7 @@ export const destinations: Destination[] = [
     name: "Turkey",
     region: "Eurasia",
     flag: "🇹🇷",
-    image:
-      "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200&q=80",
+    image: "/images/destinations/turkey.jpg",
     tagline: "Explore. Study. Experience Turkey.",
     visitVisa: false,
     studentVisa: true,

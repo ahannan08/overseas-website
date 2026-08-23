@@ -3,7 +3,6 @@ import { additionalServices } from "@/content/site";
 import { PageHero } from "@/components/layout/page-hero";
 import { ServicesGrid } from "@/components/sections/services-grid";
 import { ProcessTimeline } from "@/components/sections/founders-section";
-import { CTABanner } from "@/components/sections/cta-banner";
 import { Container, SectionHeading } from "@/components/layout/page-hero";
 import { FadeIn } from "@/components/motion/fade-in";
 import { createPageMetadata } from "@/lib/utils";
@@ -64,8 +63,6 @@ export default function OverseasPage() {
         </Container>
         <ProcessTimeline steps={visaProcess} />
       </section>
-
-      <CTABanner />
     </>
   );
 }

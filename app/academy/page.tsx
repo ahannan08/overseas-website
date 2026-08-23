@@ -1,7 +1,6 @@
 import { academyOverview, academyCourses } from "@/content/academy";
 import { PageHero, Container, SectionHeading } from "@/components/layout/page-hero";
 import { ServicesGrid } from "@/components/sections/services-grid";
-import { CTABanner } from "@/components/sections/cta-banner";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion/fade-in";
 import { createPageMetadata } from "@/lib/utils";
 
@@ -69,8 +68,6 @@ export default function AcademyPage() {
           </div>
         </Container>
       </section>
-
-      <CTABanner />
     </>
   );
 }

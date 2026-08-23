@@ -72,8 +72,7 @@ export const ieltsContent = {
   modules: ["Listening", "Reading", "Writing", "Speaking"],
   fee: "₹6,500",
   ...sharedCourseDetails,
-  image:
-    "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&q=80",
+  image: "/images/academy/ielts.png",
 };
 
 export const pteContent = {
@@ -93,8 +92,7 @@ export const pteContent = {
   ],
   fee: "Contact for details",
   ...sharedCourseDetails,
-  image:
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
+  image: "/images/academy/pte.png",
 };
 
 export const greContent = {
@@ -118,8 +116,7 @@ export const greContent = {
   ],
   fee: "Contact for details",
   ...sharedCourseDetails,
-  image:
-    "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&q=80",
+  image: "/images/academy/gre.png",
 };
 
 export const academyCourses = [ieltsContent, pteContent, greContent];

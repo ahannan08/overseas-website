@@ -1,8 +1,5 @@
-import Link from "next/link";
 import { ieltsContent } from "@/content/academy";
 import { PageHero, Container, SectionHeading } from "@/components/layout/page-hero";
-import { CTABanner } from "@/components/sections/cta-banner";
-import { LeadForm } from "@/components/forms/lead-form";
 import { FadeIn } from "@/components/motion/fade-in";
 import { createPageMetadata } from "@/lib/utils";
 
@@ -88,26 +85,6 @@ export default function IELTSPage() {
           </div>
         </Container>
       </section>
-
-      <section className="py-24">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <SectionHeading
-                title="Enroll Today"
-                accent="Free assessment"
-                subtitle="Book a free demo covering 2 sections."
-              />
-              <Link href="/academy/pte" className="text-sm text-accent hover:text-accent-light">
-                Also explore PTE →
-              </Link>
-            </div>
-            <LeadForm light />
-          </div>
-        </Container>
-      </section>
-
-      <CTABanner />
     </>
   );
 }

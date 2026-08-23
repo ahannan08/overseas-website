@@ -1,6 +1,5 @@
 import { successStories } from "@/content/success-stories";
 import { PageHero, Container, SectionHeading } from "@/components/layout/page-hero";
-import { CTABanner } from "@/components/sections/cta-banner";
 import { FadeIn } from "@/components/motion/fade-in";
 import { createPageMetadata } from "@/lib/utils";
 
@@ -60,8 +59,6 @@ export default function SuccessStoriesPage() {
           </div>
         </Container>
       </section>
-
-      <CTABanner />
     </>
   );
 }

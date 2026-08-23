@@ -1,8 +1,5 @@
-import Link from "next/link";
 import { pteContent } from "@/content/academy";
 import { PageHero, Container, SectionHeading } from "@/components/layout/page-hero";
-import { CTABanner } from "@/components/sections/cta-banner";
-import { LeadForm } from "@/components/forms/lead-form";
 import { FadeIn } from "@/components/motion/fade-in";
 import { createPageMetadata } from "@/lib/utils";
 
@@ -64,26 +61,6 @@ export default function PTEPage() {
           </div>
         </Container>
       </section>
-
-      <section className="bg-surface/30 py-24">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <SectionHeading
-                title="Enroll Today"
-                accent="Free assessment"
-                subtitle="Experience our PTE lab with a free demo."
-              />
-              <Link href="/academy/ielts" className="text-sm text-accent hover:text-accent-light">
-                Also explore IELTS →
-              </Link>
-            </div>
-            <LeadForm />
-          </div>
-        </Container>
-      </section>
-
-      <CTABanner />
     </>
   );
 }

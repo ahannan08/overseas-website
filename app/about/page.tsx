@@ -3,7 +3,6 @@ import { siteConfig } from "@/content/site";
 import { PageHero } from "@/components/layout/page-hero";
 import { FoundersSection } from "@/components/sections/founders-section";
 import { StatsBar } from "@/components/sections/stats-bar";
-import { CTABanner } from "@/components/sections/cta-banner";
 import { Container } from "@/components/layout/page-hero";
 import { FadeIn } from "@/components/motion/fade-in";
 import { createPageMetadata } from "@/lib/utils";
@@ -51,7 +50,6 @@ export default function AboutPage() {
       </section>
 
       <FoundersSection light />
-      <CTABanner />
     </>
   );
 }
