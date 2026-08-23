@@ -5,7 +5,7 @@ import { siteConfig } from "@/content/site";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-gradient-to-b from-surface to-background">
+    <footer className="border-t border-white/10 bg-gradient-to-b from-surface to-background pb-24">
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>

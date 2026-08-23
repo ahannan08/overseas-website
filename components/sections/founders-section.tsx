@@ -1,6 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  ClipboardCheck,
+  Clock,
+  Files,
+  Globe,
+  PhoneCall,
+  Send,
+  type LucideIcon,
+} from "lucide-react";
 import { founders } from "@/content/founders";
 import { StaggerChildren, StaggerItem } from "@/components/motion/fade-in";
 import { Container, SectionHeading } from "@/components/layout/page-hero";
@@ -118,30 +127,68 @@ export function FoundersSection({ light = false }: { light?: boolean }) {
 export function ProcessTimeline({
   steps,
   light = false,
+  withIcons = false,
+  title,
+  accent,
 }: {
   steps: { step: string; title: string; description: string }[];
   light?: boolean;
+  withIcons?: boolean;
+  title?: string;
+  accent?: string;
 }) {
+  const processIcons: LucideIcon[] = [
+    ClipboardCheck,
+    Send,
+    Files,
+    Clock,
+    PhoneCall,
+  ];
+
   return (
-    <section className={`py-16 ${light ? "bg-light-bg" : ""}`}>
-      <Container>
+    <section className={`relative overflow-hidden pt-24 pb-16 ${light ? "bg-light-bg" : ""}`}>
+      {withIcons && light && (
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <Globe className="absolute -left-8 top-12 h-32 w-32 text-accent/5" />
+          <ClipboardCheck className="absolute right-0 top-1/4 h-28 w-28 text-primary/5" />
+          <Send className="absolute bottom-8 left-1/4 h-24 w-24 text-accent/5" />
+        </div>
+      )}
+
+      <Container className="relative">
+        {title && (
+          <SectionHeading title={title} accent={accent} light={light} />
+        )}
         <div className="grid gap-6 md:grid-cols-5">
-          {steps.map((item) => (
-            <div
-              key={item.step}
-              className={`rounded-xl border p-5 ${light ? "border-light-fg/10 bg-white" : "glass border-white/10"}`}
-            >
-              <span className="text-2xl font-bold text-accent">{item.step}</span>
-              <h3
-                className={`mt-2 font-semibold ${light ? "text-light-fg" : "text-foreground"}`}
+          {steps.map((item, index) => {
+            const Icon = processIcons[index];
+
+            return (
+              <div
+                key={item.step}
+                className={`rounded-2xl border p-6 shadow-sm transition hover:shadow-md ${
+                  light
+                    ? "border-light-fg/10 bg-white"
+                    : "glass border-white/10"
+                }`}
               >
-                {item.title}
-              </h3>
-              <p className={`mt-1 text-sm ${light ? "text-light-fg/70" : "text-muted"}`}>
-                {item.description}
-              </p>
-            </div>
-          ))}
+                {withIcons && Icon && (
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                )}
+                <span className="text-2xl font-bold text-accent">{item.step}</span>
+                <h3
+                  className={`mt-2 font-semibold ${light ? "text-light-fg" : "text-foreground"}`}
+                >
+                  {item.title}
+                </h3>
+                <p className={`mt-1 text-sm ${light ? "text-light-fg/70" : "text-muted"}`}>
+                  {item.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>

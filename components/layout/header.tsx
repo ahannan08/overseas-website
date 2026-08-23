@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
@@ -31,23 +32,15 @@ export function Header() {
             : "border border-transparent bg-transparent"
         )}
       >
-        <Link href="/" className="flex items-center gap-2">
-          <span
-            className={cn(
-              "text-lg font-bold tracking-wider md:text-xl",
-              scrolled ? "text-light-fg" : "text-foreground"
-            )}
-          >
-            LIBERTY
-          </span>
-          <span
-            className={cn(
-              "hidden font-serif text-sm italic sm:inline",
-              scrolled ? "text-accent" : "text-accent-light"
-            )}
-          >
-            Overseas
-          </span>
+        <Link href="/" className="flex shrink-0 items-center">
+          <Image
+            src="/images/liberty-logo.png"
+            alt="Liberty Overseas"
+            width={180}
+            height={48}
+            className="h-9 w-auto md:h-10"
+            priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">

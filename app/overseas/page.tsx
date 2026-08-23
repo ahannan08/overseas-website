@@ -1,3 +1,4 @@
+import { Globe, Plane } from "lucide-react";
 import { visaTypes, visaProcess } from "@/content/overseas";
 import { additionalServices } from "@/content/site";
 import { PageHero } from "@/components/layout/page-hero";
@@ -5,19 +6,18 @@ import { ServicesGrid } from "@/components/sections/services-grid";
 import { ProcessTimeline } from "@/components/sections/founders-section";
 import { Container, SectionHeading } from "@/components/layout/page-hero";
 import { FadeIn } from "@/components/motion/fade-in";
-import { createPageMetadata } from "@/lib/utils";
+import { createPageMetadata, cn } from "@/lib/utils";
 
 export const metadata = createPageMetadata(
   "Overseas Visa Services",
   "Visit visa, student visa, and business visa assistance for Australia, USA, UK, Canada, and more."
 );
 
-const services = Object.values(visaTypes).map((v) => ({
-  title: v.title,
-  description: v.description,
-  href: v.href,
-  image: v.image,
-}));
+const services = [
+  { ...visaTypes.visit, icon: "plane" as const },
+  { ...visaTypes.student, icon: "graduation" as const },
+  { ...visaTypes.business, icon: "briefcase" as const },
+];
 
 export default function OverseasPage() {
   return (
@@ -34,10 +34,15 @@ export default function OverseasPage() {
         title="Visa Categories"
         accent="Choose your path"
         services={services}
+        variant="icon"
       />
 
-      <section className="bg-light-bg py-24">
-        <Container>
+      <section className="relative overflow-hidden py-24">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-light-bg via-[#e8ecf1] to-primary/20" />
+        <Plane className="pointer-events-none absolute -left-6 top-16 h-32 w-32 text-primary/10" />
+        <Globe className="pointer-events-none absolute -right-4 bottom-12 h-28 w-28 text-accent/15" />
+
+        <Container className="relative">
           <SectionHeading
             title="Additional Services"
             accent="Complete support"
@@ -45,11 +50,18 @@ export default function OverseasPage() {
             light
           />
           <div className="mx-auto grid max-w-4xl gap-3 sm:grid-cols-2">
-            {additionalServices.map((service) => (
+            {additionalServices.map((service, index) => (
               <FadeIn key={service}>
-                <div className="flex items-center gap-3 rounded-lg border border-light-fg/10 bg-white px-4 py-3">
-                  <span className="h-2 w-2 rounded-full bg-accent" />
-                  <span className="text-sm text-light-fg">{service}</span>
+                <div
+                  className={cn(
+                    "flex items-center gap-3 rounded-xl px-4 py-3.5 shadow-sm transition hover:shadow-md",
+                    index % 2 === 0
+                      ? "border border-light-fg/10 bg-white text-light-fg"
+                      : "border border-primary/20 bg-primary/10 text-light-fg"
+                  )}
+                >
+                  <span className="h-2 w-2 shrink-0 rounded-full bg-accent" />
+                  <span className="text-sm font-medium">{service}</span>
                 </div>
               </FadeIn>
             ))}
@@ -57,12 +69,13 @@ export default function OverseasPage() {
         </Container>
       </section>
 
-      <section className="py-16">
-        <Container>
-          <SectionHeading title="Our Process" accent="How it works" />
-        </Container>
-        <ProcessTimeline steps={visaProcess} />
-      </section>
+      <ProcessTimeline
+        steps={visaProcess}
+        light
+        withIcons
+        title="Our Process"
+        accent="How it works"
+      />
     </>
   );
 }
