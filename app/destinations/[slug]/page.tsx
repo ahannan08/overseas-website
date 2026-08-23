@@ -48,7 +48,7 @@ export default async function DestinationPage({ params }: Props) {
               </span>
             )}
             {dest.studentVisa && (
-              <span className="rounded-full border border-accent bg-accent/10 px-4 py-2 text-sm font-semibold text-accent">
+              <span className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-background">
                 Student Visa Available
               </span>
             )}

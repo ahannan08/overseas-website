@@ -6,7 +6,7 @@ import { ServicesGrid } from "@/components/sections/services-grid";
 import { ProcessTimeline } from "@/components/sections/founders-section";
 import { Container, SectionHeading } from "@/components/layout/page-hero";
 import { FadeIn } from "@/components/motion/fade-in";
-import { createPageMetadata, cn } from "@/lib/utils";
+import { createPageMetadata } from "@/lib/utils";
 
 export const metadata = createPageMetadata(
   "Overseas Visa Services",
@@ -50,16 +50,9 @@ export default function OverseasPage() {
             light
           />
           <div className="mx-auto grid max-w-4xl gap-3 sm:grid-cols-2">
-            {additionalServices.map((service, index) => (
+            {additionalServices.map((service) => (
               <FadeIn key={service}>
-                <div
-                  className={cn(
-                    "flex items-center gap-3 rounded-xl px-4 py-3.5 shadow-sm transition hover:shadow-md",
-                    index % 2 === 0
-                      ? "border border-light-fg/10 bg-white text-light-fg"
-                      : "border border-primary/20 bg-primary/10 text-light-fg"
-                  )}
-                >
+                <div className="flex items-center gap-3 rounded-xl border border-light-fg/10 bg-white px-4 py-3.5 text-light-fg shadow-sm transition hover:border-accent/30 hover:shadow-md">
                   <span className="h-2 w-2 shrink-0 rounded-full bg-accent" />
                   <span className="text-sm font-medium">{service}</span>
                 </div>

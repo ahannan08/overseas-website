@@ -34,9 +34,9 @@ export function Header() {
       >
         <Link href="/" className="flex shrink-0 items-center">
           <Image
-            src="/images/liberty-logo.png"
+            src="/images/logo2.png"
             alt="Liberty Overseas"
-            width={180}
+            width={200}
             height={48}
             className="h-9 w-auto md:h-10"
             priority

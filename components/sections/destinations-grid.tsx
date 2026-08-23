@@ -57,7 +57,7 @@ export function DestinationsGrid({
                     </p>
                     <div className="mt-4 flex flex-wrap gap-1.5">
                       {dest.visitVisa && (
-                        <span className="rounded-full bg-light-bg px-2.5 py-0.5 text-xs font-medium text-light-fg/80">
+                        <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
                           Visit
                         </span>
                       )}
