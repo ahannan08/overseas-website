@@ -2,11 +2,15 @@
 
 import { motion } from "framer-motion";
 import {
+  BookOpen,
   ClipboardCheck,
   Clock,
   Files,
   Globe,
+  GraduationCap,
+  MapPin,
   PhoneCall,
+  Plane,
   Send,
   type LucideIcon,
 } from "lucide-react";
@@ -137,13 +141,30 @@ export function ProcessTimeline({
   title?: string;
   accent?: string;
 }) {
-  const processIcons: LucideIcon[] = [
+  const visaProcessIcons: LucideIcon[] = [
     ClipboardCheck,
     Send,
     Files,
     Clock,
     PhoneCall,
   ];
+  const journeyProcessIcons: LucideIcon[] = [
+    BookOpen,
+    Globe,
+    GraduationCap,
+    Files,
+    Plane,
+    MapPin,
+  ];
+  const processIcons =
+    steps.length === 6 ? journeyProcessIcons : visaProcessIcons;
+
+  const gridClass =
+    steps.length === 5
+      ? "md:grid-cols-5"
+      : steps.length === 6
+        ? "md:grid-cols-2 lg:grid-cols-3"
+        : "md:grid-cols-2 lg:grid-cols-3";
 
   return (
     <section className={`relative overflow-hidden pt-24 pb-16 ${light ? "bg-light-bg" : ""}`}>
@@ -159,7 +180,7 @@ export function ProcessTimeline({
         {title && (
           <SectionHeading title={title} accent={accent} light={light} />
         )}
-        <div className="grid gap-6 md:grid-cols-5">
+        <div className={`grid gap-6 ${gridClass}`}>
           {steps.map((item, index) => {
             const Icon = processIcons[index];
 

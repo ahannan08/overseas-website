@@ -1,12 +1,26 @@
-import { studyAbroadJourney, studyAbroadSections } from "@/content/study-abroad";
+import { Globe, GraduationCap } from "lucide-react";
+import {
+  studyAbroadJourney,
+  studyAbroadPathways,
+  studyAbroadSections,
+} from "@/content/study-abroad";
 import { PageHero, Container, SectionHeading } from "@/components/layout/page-hero";
+import { ServicesGrid } from "@/components/sections/services-grid";
+import { ProcessTimeline } from "@/components/sections/founders-section";
 import { FadeIn } from "@/components/motion/fade-in";
-import { createPageMetadata } from "@/lib/utils";
+import { createPageMetadata, cn } from "@/lib/utils";
 
 export const metadata = createPageMetadata(
   "Study Abroad",
   "Complete study abroad journey — test prep, university selection, application, student visa, and departure."
 );
+
+const pathways = studyAbroadPathways.map((item) => ({
+  title: item.title,
+  description: item.description,
+  href: item.href,
+  image: item.image,
+}));
 
 export default function StudyAbroadPage() {
   return (
@@ -15,24 +29,50 @@ export default function StudyAbroadPage() {
         title="Study Abroad"
         accent="Your complete journey"
         subtitle="From test preparation to departure — Liberty Overseas guides every step."
-        image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&q=80"
+        image="/images/student-journey/campus.png"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Study Abroad" }]}
       />
 
-      <section className="py-24">
-        <Container>
+      <ServicesGrid
+        title="Your Pathway"
+        accent="Get started"
+        subtitle="Test preparation, destination selection, and visa support — all in one place."
+        services={pathways}
+        light
+      />
+
+      <section className="relative overflow-hidden py-24">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-light-bg via-[#e8ecf1] to-primary/20" />
+        <Globe className="pointer-events-none absolute -left-6 top-16 h-32 w-32 text-primary/10" />
+        <GraduationCap className="pointer-events-none absolute -right-4 bottom-12 h-28 w-28 text-accent/15" />
+
+        <Container className="relative">
           <SectionHeading
-            title="The Journey"
-            accent="Step by step"
-            subtitle="Test Preparation → Destination → Education Planning → Application → Student Visa → Departure"
+            title="Our Services"
+            accent="Comprehensive support"
+            subtitle="University selection, applications, scholarships, and pre-departure guidance."
+            light
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {studyAbroadJourney.map((step) => (
-              <FadeIn key={step.step}>
-                <div className="glass-card h-full">
-                  <span className="text-2xl font-bold text-accent">{step.step}</span>
-                  <h3 className="mt-2 text-lg font-semibold">{step.title}</h3>
-                  <p className="mt-2 text-sm text-muted">{step.description}</p>
+          <div className="mx-auto grid max-w-4xl gap-3 sm:grid-cols-2">
+            {studyAbroadSections.map((section, index) => (
+              <FadeIn key={section.title}>
+                <div
+                  className={cn(
+                    "rounded-xl px-4 py-3.5 shadow-sm transition hover:shadow-md",
+                    index % 2 === 0
+                      ? "border border-light-fg/10 bg-white text-light-fg"
+                      : "border border-primary/20 bg-primary/10 text-light-fg"
+                  )}
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent" />
+                    <div>
+                      <p className="text-sm font-medium">{section.title}</p>
+                      <p className="mt-1 text-xs leading-relaxed text-light-fg/70">
+                        {section.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </FadeIn>
             ))}
@@ -40,25 +80,13 @@ export default function StudyAbroadPage() {
         </Container>
       </section>
 
-      <section className="bg-light-bg py-24">
-        <Container>
-          <SectionHeading
-            title="Our Services"
-            accent="Comprehensive support"
-            light
-          />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {studyAbroadSections.map((section) => (
-              <FadeIn key={section.title}>
-                <div className="rounded-xl border border-light-fg/10 bg-white p-6">
-                  <h3 className="font-semibold text-light-fg">{section.title}</h3>
-                  <p className="mt-2 text-sm text-light-fg/70">{section.description}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ProcessTimeline
+        steps={studyAbroadJourney}
+        light
+        withIcons
+        title="The Journey"
+        accent="Step by step"
+      />
     </>
   );
 }

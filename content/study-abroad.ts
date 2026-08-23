@@ -1,3 +1,27 @@
+export const studyAbroadPathways = [
+  {
+    title: "Test Preparation",
+    description:
+      "IELTS, PTE, or GRE coaching at Liberty Academy to meet university requirements.",
+    href: "/academy",
+    image: "/images/academy/ielts.png",
+  },
+  {
+    title: "Choose Destination",
+    description:
+      "Explore top study destinations and find the country that fits your goals.",
+    href: "/destinations",
+    image: "/images/student-journey/campus.png",
+  },
+  {
+    title: "Student Visa Support",
+    description:
+      "End-to-end student visa processing with documentation and interview prep.",
+    href: "/overseas/student-visa",
+    image: "/images/student-journey/student_counseling.png",
+  },
+];
+
 export const studyAbroadJourney = [
   {
     step: "01",
