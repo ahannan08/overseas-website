@@ -4,8 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  BookOpen,
   Briefcase,
+  Calculator,
   GraduationCap,
+  Monitor,
   Plane,
   Globe,
   type LucideIcon,
@@ -19,13 +22,16 @@ type ServiceItem = {
   description: string;
   href: string;
   image?: string;
-  icon?: "plane" | "graduation" | "briefcase";
+  icon?: "plane" | "graduation" | "briefcase" | "book" | "monitor" | "calculator";
 };
 
 const iconMap: Record<NonNullable<ServiceItem["icon"]>, LucideIcon> = {
   plane: Plane,
   graduation: GraduationCap,
   briefcase: Briefcase,
+  book: BookOpen,
+  monitor: Monitor,
+  calculator: Calculator,
 };
 
 export function ServicesGrid({
@@ -81,7 +87,13 @@ export function ServicesGrid({
                       </span>
                     </div>
                   ) : (
-                    <div className="glass-card relative overflow-hidden p-0">
+                    <div
+                      className={`relative overflow-hidden p-0 transition duration-300 hover:shadow-md ${
+                        light
+                          ? "rounded-2xl border border-light-fg/10 bg-white shadow-sm hover:border-accent/30"
+                          : "glass-card"
+                      }`}
+                    >
                       <div className="relative aspect-[16/10] overflow-hidden">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
@@ -89,7 +101,9 @@ export function ServicesGrid({
                           alt={service.title}
                           className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                        {!light && (
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                        )}
                       </div>
                       <div className="p-6">
                         <h3

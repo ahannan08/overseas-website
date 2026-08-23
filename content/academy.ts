@@ -120,3 +120,31 @@ export const greContent = {
 };
 
 export const academyCourses = [ieltsContent, pteContent, greContent];
+
+export const academyProcess = [
+  {
+    step: "01",
+    title: "Free Assessment",
+    description: "Complimentary demo covering two sections to evaluate your starting level.",
+  },
+  {
+    step: "02",
+    title: "Batch Allocation",
+    description: "Join a small batch with a schedule that fits your target exam date.",
+  },
+  {
+    step: "03",
+    title: "Training & Practice",
+    description: "Daily classes, structured modules, and guided practice with expert trainers.",
+  },
+  {
+    step: "04",
+    title: "Mock Tests",
+    description: "Regular full-length mocks to track progress and refine your strategy.",
+  },
+  {
+    step: "05",
+    title: "Exam Ready",
+    description: "Final review, doubt clearing, and confidence-building before test day.",
+  },
+];
