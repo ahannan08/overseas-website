@@ -22,16 +22,40 @@ const visaOptions = [
 export function LeadForm({ light = false }: { light?: boolean }) {
   const [visaType, setVisaType] = useState<string>("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", phone: "", email: "" });
 
   const isWorkPermit = visaType === "work-permit";
-  const canSubmit = visaType && !isWorkPermit && form.name && form.phone && form.email;
+  const canSubmit =
+    visaType && !isWorkPermit && form.name && form.phone && form.email && !isSubmitting;
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!canSubmit) return;
-    console.log("Lead submitted:", { ...form, visaType });
-    setSubmitted(true);
+
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, visaType }),
+      });
+
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(data.error ?? "Something went wrong. Please try again.");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -40,7 +64,7 @@ export function LeadForm({ light = false }: { light?: boolean }) {
         <div className="py-8 text-center">
           <p className="text-2xl font-bold text-accent">Thank you!</p>
           <p className={`mt-2 ${light ? "text-light-fg/70" : "text-muted"}`}>
-            We&apos;ll contact you shortly.
+            We&apos;ve received your enquiry and will contact you shortly.
           </p>
         </div>
       </GlassCard>
@@ -98,12 +122,14 @@ export function LeadForm({ light = false }: { light?: boolean }) {
           </p>
         )}
 
-        <Button
-          type="submit"
-          className="w-full"
-          disabled={!canSubmit}
-        >
-          Submit Details
+        {error && (
+          <p className="rounded-lg border border-red-400/30 bg-red-400/10 px-4 py-3 text-sm text-red-300">
+            {error}
+          </p>
+        )}
+
+        <Button type="submit" className="w-full" disabled={!canSubmit}>
+          {isSubmitting ? "Sending..." : "Submit Details"}
         </Button>
         <p className={`text-center text-xs ${light ? "text-light-fg/50" : "text-muted"}`}>
           By submitting, you agree to our{" "}
