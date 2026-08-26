@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { footerNav } from "@/content/navigation";
 import { siteConfig } from "@/content/site";
@@ -9,10 +10,15 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="text-xl font-bold tracking-wider">LIBERTY</h3>
-            <p className="mt-1 font-serif text-sm font-bold italic text-accent-light">
-              {siteConfig.tagline}
-            </p>
+            <Link href="/" className="inline-block">
+              <Image
+                src="/images/lib-logo-1.png"
+                alt="Liberty Overseas"
+                width={556}
+                height={156}
+                className="h-14 w-auto"
+              />
+            </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               {siteConfig.description}
             </p>
