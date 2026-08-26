@@ -1,4 +1,5 @@
 import { siteConfig } from "@/content/site";
+import Image from "next/image";
 import { PageHero, Container } from "@/components/layout/page-hero";
 import { LeadForm } from "@/components/forms/lead-form";
 import { FadeIn } from "@/components/motion/fade-in";
@@ -85,6 +86,34 @@ export default function ContactPage() {
               <LeadForm />
             </FadeIn>
           </div>
+
+          <FadeIn className="mt-20">
+            <h2 className="text-2xl font-bold md:text-3xl">Visit Our Office</h2>
+            <p className="mt-2 max-w-2xl text-muted">
+              Walk in for a free consultation at our Hyderabad office — our team is
+              ready to help with visa and academy enquiries.
+            </p>
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10">
+                <Image
+                  src="/images/office.png"
+                  alt="Liberty Overseas office reception"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10">
+                <Image
+                  src="/images/office2.png"
+                  alt="Liberty Overseas office workspace"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+          </FadeIn>
         </Container>
       </section>
     </>
