@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { visaTypes } from "@/content/overseas";
 import { PageHero, Container, SectionHeading } from "@/components/layout/page-hero";
-import { VisitVisaDestinations } from "@/components/sections/visit-visa-destinations";
+import { VisaDestinationsGrid } from "@/components/sections/visa-destinations-grid";
 import { createPageMetadata } from "@/lib/utils";
 
 const page = visaTypes.visit;
@@ -39,7 +39,7 @@ export default function VisitVisaPage() {
             accent="Visit visa countries"
             subtitle="Hover or tap a country to see details and check your eligibility."
           />
-          <VisitVisaDestinations />
+          <VisaDestinationsGrid visaType="visit" />
         </Container>
       </section>
     </>

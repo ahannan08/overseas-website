@@ -1,6 +1,7 @@
+import Image from "next/image";
 import { visaTypes } from "@/content/overseas";
 import { PageHero, Container, SectionHeading } from "@/components/layout/page-hero";
-import { FadeIn } from "@/components/motion/fade-in";
+import { VisaDestinationsGrid } from "@/components/sections/visa-destinations-grid";
 import { createPageMetadata } from "@/lib/utils";
 
 const page = visaTypes.student;
@@ -22,22 +23,23 @@ export default function StudentVisaPage() {
         ]}
       />
 
-      <section className="bg-light-bg py-24">
-        <Container>
+      <section className="relative overflow-hidden py-24">
+        <Image
+          src="/images/backgrounds/green2.png"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-background/75" />
+
+        <Container className="relative">
           <SectionHeading
             title="Available Destinations"
             accent="Student visa countries"
-            light
+            subtitle="Hover or tap a country to see details and check your eligibility."
           />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {page.countries.map((country) => (
-              <FadeIn key={country}>
-                <div className="rounded-xl border border-light-fg/10 bg-white p-6 text-center">
-                  <h3 className="text-lg font-semibold text-light-fg">{country}</h3>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
+          <VisaDestinationsGrid visaType="student" />
         </Container>
       </section>
     </>

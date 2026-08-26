@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { destinations, getDestination } from "@/content/destinations";
-import { PageHero, Container, SectionHeading } from "@/components/layout/page-hero";
-import { FadeIn } from "@/components/motion/fade-in";
+import { PageHero } from "@/components/layout/page-hero";
+import { DestinationDetailSections } from "@/components/sections/destination-detail-sections";
 import { createPageMetadata } from "@/lib/utils";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -39,35 +39,7 @@ export default async function DestinationPage({ params }: Props) {
         ]}
       />
 
-      <section className="bg-light-bg py-24">
-        <Container>
-          <div className="flex flex-wrap justify-center gap-3">
-            {dest.visitVisa && (
-              <span className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-background">
-                Visit Visa Available
-              </span>
-            )}
-            {dest.studentVisa && (
-              <span className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-background">
-                Student Visa Available
-              </span>
-            )}
-          </div>
-
-          <SectionHeading title="Highlights" accent="Why choose here" light />
-
-          <div className="mx-auto grid max-w-3xl gap-4">
-            {dest.highlights.map((h) => (
-              <FadeIn key={h}>
-                <div className="flex items-center gap-3 rounded-lg border border-light-fg/10 bg-white px-5 py-4">
-                  <span className="text-xl">{dest.flag}</span>
-                  <span className="text-light-fg">{h}</span>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <DestinationDetailSections destination={dest} />
     </>
   );
 }
