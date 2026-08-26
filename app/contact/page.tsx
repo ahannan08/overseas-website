@@ -40,6 +40,15 @@ export default function ContactPage() {
                     <a href={siteConfig.phoneHref} className="mt-1 text-muted hover:text-accent">
                       {siteConfig.phone}
                     </a>
+                    <p className="mt-2 text-sm text-muted">
+                      Office line:{" "}
+                      <a
+                        href={siteConfig.phoneSecondaryHref}
+                        className="hover:text-accent"
+                      >
+                        {siteConfig.phoneSecondary}
+                      </a>
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-4">
