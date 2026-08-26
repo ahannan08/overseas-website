@@ -6,7 +6,7 @@ export const founders = [
     bio: "With two decades of experience in immigration and education consultancy, Khaleel leads Liberty Overseas with a vision to transform lives through global opportunities.",
     whyStarted:
       "Passionate about helping students and families achieve their dreams of studying and traveling abroad.",
-    photo: "/images/founders/khaleel.png",
+    photo: "/images/founders/khaleel_2.png",
   },
   {
     name: "Mohammad Sohaib",
