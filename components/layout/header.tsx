@@ -8,6 +8,7 @@ import { Menu } from "lucide-react";
 import { mainNav } from "@/content/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { CheckEligibilityButton } from "@/components/forms/check-eligibility-button";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -71,9 +72,7 @@ export function Header() {
           >
             <Link href="/faq">FAQ</Link>
           </Button>
-          <Button size="sm" asChild>
-            <Link href="/contact">Check Eligibility</Link>
-          </Button>
+          <CheckEligibilityButton size="sm" />
         </div>
 
         <Sheet open={open} onOpenChange={setOpen}>
@@ -107,11 +106,10 @@ export function Header() {
                   FAQ
                 </Link>
               </Button>
-              <Button className="mt-2" asChild>
-                <Link href="/contact" onClick={() => setOpen(false)}>
-                  Check Eligibility
-                </Link>
-              </Button>
+              <CheckEligibilityButton
+                className="mt-2 w-full"
+                onClick={() => setOpen(false)}
+              />
             </div>
           </SheetContent>
         </Sheet>

@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { FloatingActions } from "@/components/layout/floating-actions";
 import { HashScroll } from "@/components/layout/hash-scroll";
+import { EligibilityProvider } from "@/components/providers/eligibility-provider";
 import { siteConfig } from "@/content/site";
 import "./globals.css";
 
@@ -42,11 +43,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jakarta.variable} ${cormorant.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
-        <HashScroll />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingActions />
+        <EligibilityProvider>
+          <HashScroll />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FloatingActions />
+        </EligibilityProvider>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { CheckEligibilityButton } from "@/components/forms/check-eligibility-button";
 import { heroVideoSrc } from "@/content/gallery";
 
 export function CinematicHero() {
@@ -89,12 +90,7 @@ export function CinematicHero() {
           transition={{ delay: 0.5 }}
           className="mt-8 flex flex-wrap justify-center gap-4"
         >
-          <Link
-            href="/contact"
-            className="inline-flex h-11 items-center rounded-full border border-white/30 px-6 text-sm font-semibold transition hover:bg-white hover:text-background"
-          >
-            Check Eligibility
-          </Link>
+          <CheckEligibilityButton variant="outline" />
           <Link
             href="/destinations"
             className="inline-flex h-11 items-center rounded-full px-6 text-sm font-bold text-accent-light transition hover:text-accent"

@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Plane } from "lucide-react";
 import { Container } from "@/components/layout/page-hero";
 import { Button } from "@/components/ui/button";
+import { CheckEligibilityButton } from "@/components/forms/check-eligibility-button";
 import { FadeIn } from "@/components/motion/fade-in";
 
 export function CTABanner() {
@@ -24,9 +27,7 @@ export function CTABanner() {
               transparent pricing.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Button size="lg" asChild>
-                <Link href="/contact">Check Eligibility</Link>
-              </Button>
+              <CheckEligibilityButton size="lg" />
               <Button variant="outline" size="lg" asChild>
                 <Link href="/faq">View FAQ</Link>
               </Button>
