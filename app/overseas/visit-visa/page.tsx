@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { visaTypes } from "@/content/overseas";
 import { PageHero, Container, SectionHeading } from "@/components/layout/page-hero";
-import { FadeIn } from "@/components/motion/fade-in";
+import { VisitVisaDestinations } from "@/components/sections/visit-visa-destinations";
 import { createPageMetadata } from "@/lib/utils";
 
 const page = visaTypes.visit;
@@ -37,16 +37,9 @@ export default function VisitVisaPage() {
           <SectionHeading
             title="Available Destinations"
             accent="Visit visa countries"
+            subtitle="Hover or tap a country to see details and check your eligibility."
           />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {page.countries.map((country) => (
-              <FadeIn key={country}>
-                <div className="rounded-xl border border-white/15 bg-white/95 p-6 text-center shadow-sm backdrop-blur-sm">
-                  <h3 className="text-lg font-semibold text-light-fg">{country}</h3>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
+          <VisitVisaDestinations />
         </Container>
       </section>
     </>
