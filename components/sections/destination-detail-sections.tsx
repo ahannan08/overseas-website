@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import type { Destination } from "@/content/destinations";
+import { getVisitVisaPage } from "@/content/visit-visa-pages";
 import { CheckEligibilityButton } from "@/components/forms/check-eligibility-button";
 import { Container, SectionHeading } from "@/components/layout/page-hero";
 import { FadeIn } from "@/components/motion/fade-in";
-import { FileText, GraduationCap, MapPin, Plane } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 type DestinationDetailSectionsProps = {
   destination: Destination;
@@ -56,82 +58,35 @@ export function DestinationDetailSections({
         </Container>
       </section>
 
-      {destination.visitVisa && destination.visitVisaDetails && (
-        <section className="bg-light-bg py-24">
+      {(destination.visitVisa || destination.studentVisa) && (
+        <section className="bg-light-bg py-16">
           <Container>
             <SectionHeading
-              title="Visit Visa"
-              accent={`Travel to ${destination.name}`}
+              title="Visa Guides"
+              accent={destination.name}
+              subtitle="Read the full visit or student visa guide with document checklists."
               light
             />
             <FadeIn>
-              <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
-                <div className="rounded-2xl border border-light-fg/10 bg-white p-6">
-                  <div className="flex items-center gap-2 text-accent">
-                    <FileText className="h-5 w-5" />
-                    <h3 className="font-semibold text-light-fg">Key Documents</h3>
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-light-fg/70">
-                    {destination.visitVisaDetails.documentsSummary}
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-light-fg/10 bg-white p-6">
-                  <div className="flex items-center gap-2 text-accent">
-                    <Plane className="h-5 w-5" />
-                    <h3 className="font-semibold text-light-fg">Best For</h3>
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-light-fg/70">
-                    {destination.visitVisaDetails.bestFor}
-                  </p>
-                </div>
-              </div>
-              <div className="mt-8 flex justify-center">
-                <CheckEligibilityButton defaultVisaType="visit" />
-              </div>
-            </FadeIn>
-          </Container>
-        </section>
-      )}
-
-      {destination.studentVisa && destination.studentVisaDetails && (
-        <section className="py-24">
-          <Container>
-            <SectionHeading
-              title="Student Visa"
-              accent={`Study in ${destination.name}`}
-            />
-            <FadeIn>
-              <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-3">
-                <div className="rounded-2xl border border-white/10 bg-surface p-6">
-                  <div className="flex items-center gap-2 text-accent">
-                    <GraduationCap className="h-5 w-5" />
-                    <h3 className="font-semibold">Universities</h3>
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
-                    {destination.studentVisaDetails.universitiesNote}
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-surface p-6">
-                  <div className="flex items-center gap-2 text-accent">
-                    <MapPin className="h-5 w-5" />
-                    <h3 className="font-semibold">Intake Seasons</h3>
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
-                    {destination.studentVisaDetails.intakeSeasons}
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-surface p-6">
-                  <div className="flex items-center gap-2 text-accent">
-                    <Plane className="h-5 w-5" />
-                    <h3 className="font-semibold">After Graduation</h3>
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
-                    {destination.studentVisaDetails.postStudyOptions}
-                  </p>
-                </div>
-              </div>
-              <div className="mt-8 flex justify-center">
-                <CheckEligibilityButton defaultVisaType="student" />
+              <div className="mx-auto flex max-w-xl flex-col gap-4 sm:flex-row sm:justify-center">
+                {destination.visitVisa && getVisitVisaPage(destination.slug) && (
+                  <Link
+                    href={`/overseas/visit-visa/${destination.slug}`}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-light-fg/15 bg-white px-6 py-3 text-sm font-semibold text-light-fg transition hover:border-accent hover:text-accent"
+                  >
+                    View Visit Visa guide
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                )}
+                {destination.studentVisa && (
+                  <Link
+                    href={`/overseas/student-visa/${destination.slug}`}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-light-fg/15 bg-white px-6 py-3 text-sm font-semibold text-light-fg transition hover:border-accent hover:text-accent"
+                  >
+                    View Student Visa guide
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                )}
               </div>
             </FadeIn>
           </Container>

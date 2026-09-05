@@ -72,7 +72,7 @@ export function VisaCountryCard({
             onClick={() => setExpanded(false)}
           />
           <Link
-            href={`/destinations/${destination.slug}`}
+            href={`/overseas/${visaType}-visa/${destination.slug}`}
             className="inline-flex items-center gap-1 rounded-full px-3 py-2 text-xs font-semibold text-accent transition hover:gap-1.5"
           >
             Learn more <ArrowRight className="h-3.5 w-3.5" />

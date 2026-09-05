@@ -5,6 +5,71 @@ export type FAQCategory = {
 
 export const faqCategories: FAQCategory[] = [
   {
+    category: "Visa & Study Abroad",
+    items: [
+      {
+        question: "Which countries do you provide visa assistance for?",
+        answer:
+          "We provide visa assistance for popular study and travel destinations including Australia, USA, UK, Canada, New Zealand and European countries. Our team helps you understand the requirements and application process for your chosen destination.",
+      },
+      {
+        question: "Which visa categories do you assist with?",
+        answer:
+          "We assist with various visa categories including Student Visas, Visit Visas and other eligible visa categories based on your travel or study plans. Our team will assess your requirements and guide you toward the appropriate visa option.",
+      },
+      {
+        question: "Can you assess my profile before I apply?",
+        answer:
+          "Yes. We can assess your academic background, financial circumstances, travel history and overall profile to help you understand your visa options and prepare the appropriate application.",
+      },
+      {
+        question: "What are the eligibility requirements for a visa?",
+        answer:
+          "Eligibility requirements vary depending on the country, visa category and individual profile. Our experts will review your circumstances and explain the relevant requirements before you proceed with your application.",
+      },
+      {
+        question: "Can I apply if I have a previous visa refusal?",
+        answer:
+          "Yes, you may be able to apply again after a visa refusal. However, it is important to understand the reason for the previous refusal and address any concerns before submitting a new application. Our team can review your previous refusal and guide you on the next steps.",
+      },
+      {
+        question: "Can my family members apply with me?",
+        answer:
+          "In many cases, eligible family members may be able to apply alongside or separately from the main applicant, depending on the visa category and destination country. Our team can explain the applicable requirements for your situation.",
+      },
+      {
+        question: "What happens if additional documents are requested?",
+        answer:
+          "If the immigration authorities request additional documents or information, we can guide you on what is required and how to provide the requested information correctly within the given timeframe.",
+      },
+      {
+        question: "What happens if my visa is refused?",
+        answer:
+          "If your visa application is refused, our team can help you understand the refusal reasons and discuss the available options, which may include reapplying or taking other appropriate steps depending on the country and visa category.",
+      },
+      {
+        question: "Do I need proof of funds for my visa application?",
+        answer:
+          "Financial requirements vary depending on the country, visa category and your individual circumstances. Where required, we can guide you on the appropriate financial documents and how to present them with your application.",
+      },
+      {
+        question: "Can you help with invitation and sponsorship documents?",
+        answer:
+          "Yes. If your visa application involves an invitation or financial sponsorship, we can guide you regarding the relevant supporting documents and requirements based on your destination and visa category.",
+      },
+      {
+        question: "What happens after my visa is approved?",
+        answer:
+          "Once your visa is approved, we can guide you through the next steps, including travel planning, accommodation and other pre-departure requirements, depending on your visa and destination.",
+      },
+      {
+        question: "Do you provide pre-departure assistance?",
+        answer:
+          "Yes. We can provide guidance to help you prepare for your journey, including travel planning, accommodation and other important pre-departure requirements.",
+      },
+    ],
+  },
+  {
     category: "Visa FAQs",
     items: [
       {
@@ -189,10 +254,10 @@ export const faqCategories: FAQCategory[] = [
 export const homeFaqTeaser = [
   faqCategories[0].items[0],
   faqCategories[0].items[1],
+  faqCategories[0].items[2],
   faqCategories[1].items[0],
   faqCategories[2].items[0],
-  faqCategories[0].items[6],
-  faqCategories[6].items[0],
+  faqCategories[1].items[6],
   faqCategories[7].items[0],
-  faqCategories[7].items[1],
+  faqCategories[8].items[0],
 ];

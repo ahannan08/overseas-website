@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { destinations } from "@/content/destinations";
+import { getDestinationsByVisaType } from "@/lib/destinations";
 import { siteConfig } from "@/content/site";
 
 const staticRoutes = [
@@ -40,5 +41,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...destinationPages];
+  const visitVisaCountryPages = getDestinationsByVisaType("visit").map((d) => ({
+    url: `${baseUrl}/overseas/visit-visa/${d.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  const studentVisaCountryPages = getDestinationsByVisaType("student").map((d) => ({
+    url: `${baseUrl}/overseas/student-visa/${d.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  return [
+    ...staticPages,
+    ...destinationPages,
+    ...visitVisaCountryPages,
+    ...studentVisaCountryPages,
+  ];
 }
